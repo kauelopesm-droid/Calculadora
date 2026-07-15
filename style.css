@@ -3,69 +3,173 @@
     src: url('Monocraft.ttf') format('truetype');
 }
 
+
+/* NOVO */
+* {
+    box-sizing: border-box;
+}
+
+
 body {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+
+    /* ALTERADO */
+    min-height: 100vh;
+    padding: 10px;
+
     background-color: hsl(0, 0%, 95%);
     font-family: 'Minecraft', Arial;
 }
 
+
 #calculator {
     font-family: 'Minecraft', Arial;
+
+    /* ALTERADO */
+    width: 100%;
+    max-width: 500px;
+
     background-color: hsl(0, 0%, 15%);
     border-radius: 15px;
-    max-width: 500px;
     overflow: hidden;
 }
 
+
 #display {
     width: 100%;
-    padding: 20px;
-    font-size: 5rem;
-    text-align: left;
+
+    /* ALTERADO */
+    padding: 15px;
+    min-height: 90px;
+
+    /* ALTERADO */
+    font-size: clamp(2rem, 8vw, 5rem);
+
+    text-align: right;
     border: none;
+
+    /* NOVO */
+    outline: none;
+
     background-color: hsl(0, 0%, 20%);
     color: rgb(255, 255, 255);
+
+    /* NOVO */
+    overflow: hidden;
+    white-space: nowrap;
 }
+
 
 #keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+
+    /* ALTERADO */
     gap: 10px;
-    padding: 25px;
+    padding: 15px;
 }
 
+
 button {
-    width: 100px;
-    height: 100px;
+
+    /* ALTERADO */
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
     border-radius: 50px;
     border: none;
+
     background-color: hsl(0, 0%, 30%);
     color: white;
-    font-size: 3rem;
+
+    /* ALTERADO */
+    font-size: clamp(1.2rem, 6vw, 3rem);
+
     font-weight: bold;
     cursor: pointer;
 }
 
-button:hover{
-    background-color: hsl(0, 0, 40%);
+
+button:hover {
+
+    /* CORRIGIDO */
+    background-color: hsl(0, 0%, 40%);
 }
 
+
 button:active {
-    background-color: hsl(0, 0, 50%);
+    background-color: hsl(0, 0%, 50%);
 }
+
 
 .operator-btn {
     background-color: hsl(35, 100%, 55%);
 }
 
+
 .operator-btn:hover {
     background-color: hsl(35, 100%, 65%);
 }
 
+
 .operator-btn:active {
     background-color: hsl(35, 100%, 75%);
+}
+
+
+
+/* NOVO - celulares Android antigos */
+@media (max-width: 360px) {
+
+    body {
+        padding: 5px;
+    }
+
+
+    #calculator {
+        border-radius: 10px;
+    }
+
+
+    #keys {
+        gap: 6px;
+        padding: 10px;
+    }
+
+
+    #display {
+        min-height: 70px;
+        padding: 10px;
+        font-size: 2rem;
+    }
+
+
+    button {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* NOVO - celular deitado */
+@media (max-height: 500px) {
+
+    body {
+        align-items: flex-start;
+        padding-top: 5px;
+    }
+
+
+    #keys {
+        padding: 10px;
+        gap: 5px;
+    }
+
+
+    #display {
+        min-height: 60px;
+    }
 }
